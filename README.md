@@ -52,6 +52,9 @@ ec2インスタンス用のキーペアは、`key_pair.tf`にてterraformから�
 
 # template
 ユーザーデータ、iamポリシー、iamロールのテンプレートファイルを配置するディレクトリです。  
+`mysql_install.sh`には、mysqlのインストールが記載されています。  
+`iam`サブディレクトリでは、ec2用のiamポリシーおよびロールが記載されています。  
+S3,cloudwatch,ssm,RDSのポリシーを付与します。  
 各テンプレートは、`modules`にて参照されます。
 
 # envs
