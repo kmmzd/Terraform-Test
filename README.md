@@ -62,7 +62,7 @@ S3,cloudwatch,ssm,RDSのポリシーを付与します。
 `terraform apply`は、"dev"および"prd"サブディレクトリにて行います。  
 `main.tf`では、子モジュールの呼び出しを行います。  
 `variables.tf`では、環境ごとの差違を定義します。  
-`versions.tf`では、プロバイダーを定義しています。
+`versions.tf`では、プロバイダーを定義しています。  
 `backend.tf`では、`.tfstate`ファイルをs3に保存する設定を行います。  
 なお、`.tfstate`ファイルを保管するs3自体は、terraformでの作成を行いません。  
 terraformでs3を作成した場合、s3の`.tfstate`ファイルの管理に関する問題が発生するためです。
