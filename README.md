@@ -33,9 +33,32 @@ prd環境が、VPC内に配置した1台のALB、2台のEC2、1台のRDS（MySQL
     ├── dev
     │   ├── main.tf
     │   ├── variables.tf
+    |   ├── versions.tf
     |   └── backend.tf
     └── prd
         ├── main.tf
         ├── variables.tf
+        ├── versions.tf
         └── backend.tf   
 ```
+
+# modules
+子モジュールのディレクトリです。   
+`.tfファイル`は、作成するリソースごとに分割しています。  
+参照の煩雑さを軽減するため、変数およびアウトプットは、`variables.tf`と`outputs.tf`にまとめて記載しています。  
+ec2インスタンス用のキーペアは、`key_pair.tf`にてterraformから直接作成を行います。  
+作成したprivate_keyは`.tfstate`ファイルに直接記載されるため、注意が必要です。  
+また、作成したキーペアはs3に保管されます。
+
+# template
+ユーザーデータ、iamポリシー、iamロールのテンプレートファイルを配置するディレクトリです。  
+各テンプレートは、`modules`にて参照されます。
+
+# envs
+ルートモジュールのディレクトリです。
+`terraform apply`は当ディレクトリにて行います。  
+`main.tf`では、子モジュールの呼び出しを行います。  
+`variables.tf`では、環境ごとの差違を定義します。  
+`backend.tf`では、`.tfstate`ファイルをs3に保存する設定を行います。  
+なお、`.tfstate`ファイルを保管するs3自体は、terraformでの作成を行いません。  
+terraformでs3を作成した場合、s3の`.tfstate`ファイルの管理に関する問題が発生するためです。
