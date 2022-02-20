@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": [
+          "ec2:*"
+        ],
+        "Effect": "Allow",
+        "Resource": [
+            "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+            "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
+            "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess",
+            "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
+        ]
+      }
+    ]
+  }
