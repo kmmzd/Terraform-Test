@@ -12,7 +12,7 @@ prd環境が、VPC内に配置した1台のALB、2台のEC2、1台のRDS（MySQL
 # Directory structure
 
 ```
-├── modules #childs module
+├── modules #child module
 │   ├── vpc.tf
 |   ├── securitygroup.tf
 |   ├── keypair.tf 
