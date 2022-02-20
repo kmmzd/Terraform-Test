@@ -59,7 +59,7 @@ S3,cloudwatch,ssm,RDSのポリシーを付与します。
 
 # envs
 ルートモジュールのディレクトリです。  
-`terraform apply`は、"dev"および"prd"サブディレクトリにて行います。  
+`terraform apply`は、`dev`および`prd`サブディレクトリにて行います。  
 `main.tf`では、子モジュールの呼び出しを行います。  
 `variables.tf`では、環境ごとの差違を定義します。  
 `versions.tf`では、プロバイダーを定義しています。  
