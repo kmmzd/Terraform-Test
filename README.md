@@ -6,8 +6,8 @@ dev環境は無料利用枠の範囲内で作成を行いますが、prd環境�
 dev環境が、VPC内に配置した1台のALB、1台のEC2、1台のRDS（MySQL）。  
 prd環境が、VPC内に配置した1台のALB、2台のEC2、1台のRDS（MySQL、マルチAZ）となります。
 # Diagram
-![tftest-dev-rereseize](https://user-images.githubusercontent.com/91016271/154847962-c7b62707-2689-4290-8ba9-8c6c721ae445.png)
-![tftest-prd drawio-280](https://user-images.githubusercontent.com/91016271/154848117-587eea57-c44c-496f-b6f7-d4ab3223eefc.png)
+![tftest-dev 250](https://user-images.githubusercontent.com/91016271/154978777-b597341f-eefe-41e4-bfcc-f57f9f09a7f3.png)
+![tftest-prd 280](https://user-images.githubusercontent.com/91016271/154848117-587eea57-c44c-496f-b6f7-d4ab3223eefc.png)
 
 # Directory structure
 
