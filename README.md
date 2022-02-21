@@ -45,24 +45,30 @@ prd環境が、VPC内に配置した1台のALB、2台のEC2、1台のRDS（MySQL
 # modules
 子モジュールのディレクトリです。   
 `.tf`ファイルは、作成するリソースごとに分割しています。  
+
 参照の煩雑さを軽減するため、変数およびアウトプットは、`variables.tf`と`outputs.tf`にまとめて記載しています。  
+
 ec2インスタンス用のキーペアは、`key_pair.tf`にてterraformから直接作成を行います。  
 作成したprivate_keyは`.tfstate`ファイルに直接記載されるため、注意が必要です。  
 また、作成したキーペアはs3に保管されます。
 
 # template
 ユーザーデータ、iamポリシー、iamロールのテンプレートファイルを配置するディレクトリです。  
-`mysql_install.sh`では、mysqlのインストールが定義されています。  
-`iam`サブディレクトリでは、ec2用のiamポリシーおよびロールが定義されています。  
+
+`mysql_install.sh`：mysqlのインストールが定義されています。  
+`iam`サブディレクトリ：ec2用のiamポリシーおよびロールが定義されています。  
 S3,cloudwatch,ssm,RDSのポリシーを付与します。  
+
 各テンプレートは、`modules`ディレクトリにて参照されます。
 
 # envs
 ルートモジュールのディレクトリです。  
 `terraform apply`は、`dev`および`prd`サブディレクトリにて行います。  
-`main.tf`では、子モジュールの呼び出しを行います。  
-`variables.tf`では、環境ごとの差違を定義します。  
-`versions.tf`では、プロバイダーを定義しています。  
-`backend.tf`では、`.tfstate`ファイルをs3に保存する設定を行います。  
+
+`main.tf`：子モジュールの呼び出しを行います。  
+`variables.tf`：環境ごとの差違を定義します。  
+`versions.tf`：プロバイダーを定義しています。  
+`backend.tf`：`.tfstate`ファイルをs3に保存する設定を行います。  
+
 なお、`.tfstate`ファイルを保管するs3自体は、terraformでの作成を行いません。  
 terraformでs3を作成した場合、s3の`.tfstate`ファイルに関する管理問題が発生するためです。
