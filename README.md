@@ -70,5 +70,4 @@ S3,cloudwatch,ssm,RDSのポリシーを付与します。
 `versions.tf`：プロバイダーを定義しています。  
 `backend.tf`：`.tfstate`ファイルをs3に保存する設定を行います。  
 
-なお、`.tfstate`ファイルを保管するs3自体は、terraformでの作成を行いません。  
-terraformでs3を作成した場合、s3の`.tfstate`ファイルに関する管理問題が発生するためです。
+なお、`.tfstate`ファイルを保管するs3自体は、terraformでの作成を行いません（s3を作成した`.tfstate`ファイルの管理問題を避けるため）。  
